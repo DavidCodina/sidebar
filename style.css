@@ -339,6 +339,16 @@ pre {
 @media (max-width: 575px) {
   .navbar-collapse { max-width: 100%; }
 
+  body.nav-open {
+    height: 100vh;
+    overflow:hidden;
+  }
+
+  body.nav-open main {
+    height: 100vh;
+    overflow:hidden;
+  }
+
   body.nav-open #navicon:focus {
     border-color: rgb(255,255,255);
     box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
