@@ -15,23 +15,51 @@
 
 
 <body class="transition-none">
+  <svg class="hidden">
+		<defs>
+			<filter id="filter-pulse">
+				<feTurbulence type="fractalNoise" baseFrequency="0.15 0.02" numOctaves="3" result="warp" />
+				<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="0" in="SourceGraphic" in2="warp" />
+			</filter>
+		</defs>
+	</svg>
+
+
   <header>
     <nav id="primary-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#!">Sidebar Demo</a>
+        <div class="pulse-link-container">
+          <a class="navbar-brand pulse-link" href="#!">Sidebar Demo</a>
+        </div>
+
 
         <button id="navicon" class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div id="nav-menu" class="navbar-collapse">
-          <div class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto">
             <!-- Add additional .navbar-brand that is hidden at larger widths -->
-            <a class="navbar-brand" href="#!">Sidebar Demo</a>
-            <a class="nav-link" href="#!">About</a>
-            <a class="nav-link" href="#!">Services</a>
-            <a class="nav-link" href="#!">Contact</a>
-          </div>
+            <li class="nav-item pulse-link-container">
+              <a class="navbar-brand nav-item pulse-link" href="#!">Sidebar Demo</a>
+            </li>
+
+            <li class="nav-item pulse-link-container">
+              <a class="nav-link link-light pulse-link" href="#!">Home</a>
+            </li>
+
+            <li class="nav-item pulse-link-container">
+              <a class="nav-link link-light pulse-link" href="#!">About</a>
+            </li>
+
+            <li class="nav-item pulse-link-container">
+              <a class="nav-link link-light pulse-link" href="#!">Services</a>
+            </li>
+
+            <li class="nav-item pulse-link-container">
+              <a class="nav-link link-light pulse-link" href="#!">Contact</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -42,9 +70,9 @@
 
   ========================================================================== -->
 
+
   <main class="py-5">
     <div class="container-fluid px-md-5">
-
       <article class="article">
         <h2 class="text-white-3d">Overview:</h2>
 
@@ -94,6 +122,7 @@
 
         <p>It works in conjunction with the following CSS rule, originally discussed in <a href="https://css-tricks.com/transitions-only-after-page-load/" target="_blank">CSS Tricks</a>.</p>
 
+
         <pre><code>
   .transition-none * {
     -webkit-transition: none !important;
@@ -114,8 +143,8 @@
 
 
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <script src="Pulse.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

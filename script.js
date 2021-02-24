@@ -1,8 +1,9 @@
-const body      = document.querySelector('BODY');
-const main      = document.querySelector('MAIN');
-const navbar    = document.querySelector('#primary-navbar');
-const navicon   = navbar.querySelector('#navicon');
-const menuBrand = navbar.querySelector('.navbar-collapse .navbar-brand');
+const body       = document.querySelector('BODY');
+const main       = document.querySelector('MAIN');
+const navbar     = document.querySelector('#primary-navbar');
+const navicon    = navbar.querySelector('#navicon');
+const menuBrand  = navbar.querySelector('.navbar-collapse .navbar-brand');
+const pulseLinks = [].slice.call(document.querySelectorAll('.pulse-link'));
 
 
 
@@ -55,16 +56,16 @@ function closeNavigation(){
 
 
 /* =============================================================================
-                            initialization
+                             initialization
 ============================================================================= */
 
 
-setTimeout(function(){
-  console.log("CSS class '.transition-none' removed from body element.");
-  document.body.classList.remove('transition-none');
-}, 500);
+setTimeout(function(){ document.body.classList.remove('transition-none'); }, 500);
 
 
+pulseLinks.forEach(link => { new Pulse(link); });
 main.addEventListener('click',    closeNavigation);
 navicon.addEventListener("click", toggleNavigation);
+
+
 window.onresize = function(){ throttled_removeTransitionsOnResize(); }
